@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Allup_Template.props" />
+</Project>
