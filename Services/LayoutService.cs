@@ -22,7 +22,7 @@ namespace Allup_Template.Services
                 .ToListAsync();
 
             return categories;
-        }
+        }   
 
         public async Task<IDictionary<string,string>> GetSettingsAsync()
         {

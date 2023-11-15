@@ -144,7 +144,7 @@
                                 <div class="header-search media-body">
                                     <form action="#">
                                         <div class="search-category">
-                                            <select>
+                                            <select id="searchCategory">
                                                 <option value="">All categories</option>
                                                 @foreach (Category main in categories)
                                                 {
@@ -162,8 +162,8 @@
                                        
                                             </select>
                                         </div>
-                                        <input type="text" placeholder="Enter your search key ... ">
-                                        <button><i class="icon ion-android-search"></i></button>
+                                       <input id="searchInput" type="text" placeholder="Enter your search key ... ">
+                                        <button id="searchBtn"><i class="icon ion-android-search"></i></button>
                                     </form>
                                 </div>
                                 <div class="header-cart">
@@ -450,7 +450,7 @@
                 <div class="header-search">
                     <form action="#">
                         <div class="search-category">
-                            <select>
+                            <select >
                                 <option value="0">All categories</option>
                                 <option value="12">Laptop</option>
                                 <option value="13">- - Hot Categories</option>
@@ -555,8 +555,8 @@
                                 <option value="112">Games &amp; Consoles</option>
                             </select>
                         </div>
-                        <input type="text" placeholder="Enter your search key ... ">
-                        <button><i class="icon ion-android-search"></i></button>
+                        <input id="searchInput" type="text" placeholder="Enter your search key ... ">
+                        <button><i id="searchBtn" class="icon ion-android-search"></i></button>
                     </form>
                 </div>
             </div> <!-- container -->
@@ -1189,6 +1189,8 @@
     <script src="~/assets/js/plugins/slick.min.js"></script>
     <script src="~/assets/js/plugins/jquery.countdown.min.js"></script>
     <script src="~/assets/js/plugins/jquery-ui.min.js"></script>
+     <script src="~/assets/js/plugins/jquery-ui.min.js"></script>
+
 
 
     <!--====== Use the minified version files listed below for better performance and remove the files listed above ======-->
@@ -1198,6 +1200,8 @@
 
     <!--====== Main Activation js ======-->
     <script src="~/assets/js/main.js"></script>
+    <script src="~/assets/js/Custom.js"></script>
+
 
 
 

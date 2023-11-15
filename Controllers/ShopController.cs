@@ -21,16 +21,16 @@ namespace Allup_Template.Controllers
 
         public async Task<IActionResult> Search(int? categoryId, string search)
         {
-            if (categoryId == null)
+            if (categoryId != null)
             {
                 if (!await _context.Categories.AnyAsync(c => c.IsDeleted == false && c.Id == categoryId))
                 {
                     return BadRequest("Category Is Incorrect ");
-
                 }
             }
-
+            
             search = search.Trim().ToLower();
+            
 
             List<Product> products = await _context.Products
                 .Where(p => (categoryId != null ? p.CategoryId == categoryId : true) && p.IsDeleted == false &&
@@ -40,7 +40,6 @@ namespace Allup_Template.Controllers
                 ))
                  .ToListAsync();
             return Ok(products);
-
 
 
 

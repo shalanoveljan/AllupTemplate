@@ -23,7 +23,8 @@ namespace Allup_Template.Controllers
                 Categories = categories,
                 NewArrivals = await _context.Products.Where(p => p.IsDeleted == false && p.IsNewArrival == true).ToListAsync(),
                 BestSellers = await _context.Products.Where(p => p.IsDeleted == false && p.IsBestSeller == true).ToListAsync(),
-                Features = await _context.Products.Where(p => p.IsDeleted == false && p.IsFeatured == true).ToListAsync()
+                Features = await _context.Products.Where(p => p.IsDeleted == false && p.IsFeatured == true).ToListAsync(),
+                Sliders=await _context.Sliders.Where(s=>s.IsDeleted== false).ToListAsync()
 
             };
             return View(homevm);
