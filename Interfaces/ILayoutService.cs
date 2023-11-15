@@ -6,5 +6,6 @@ namespace Allup_Template.Interfaces
     {
 
         Task<IDictionary<string, string>> GetSettingsAsync();
+        Task<IEnumerable<Category>> GetCategoriesAsync();
     }
 }

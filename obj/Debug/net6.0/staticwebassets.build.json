@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "LaLEapFEeg9XvOYjZCVp+QB1NzeuZYm1khbE2Dbqesc=",
+  "Hash": "NhvKBGGB9sRHNDoYVjXrOArISdN9JgEGkU43+6q9YhM=",
   "Source": "Allup_Template",
   "BasePath": "_content/Allup_Template",
   "Mode": "Default",
@@ -2378,6 +2378,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\images\\special-products\\special-products-8.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\OMEN\\Desktop\\VS Code\\Allup_Template\\wwwroot\\assets\\js\\Custom.js",
+      "SourceId": "Allup_Template",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\OMEN\\Desktop\\VS Code\\Allup_Template\\wwwroot\\",
+      "BasePath": "_content/Allup_Template",
+      "RelativePath": "assets/js/Custom.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\js\\Custom.js"
     },
     {
       "Identity": "C:\\Users\\OMEN\\Desktop\\VS Code\\Allup_Template\\wwwroot\\assets\\js\\main.js",
