@@ -39,7 +39,7 @@ namespace Allup_Template.Controllers
                 p.Brand.Name.ToLower().Contains(search)
                 ))
                  .ToListAsync();
-            return Ok(products);
+            return PartialView("_SearchPartial",products);
 
 
 
@@ -49,6 +49,27 @@ namespace Allup_Template.Controllers
 
 
 
+        }
+
+        public async Task<IActionResult> Modal(int? id)
+        {
+            if (id == null)
+            {
+                return BadRequest();
+            }
+
+            Product? product=await _context.Products
+                .Include(p => p.productImages.Where(pi=>pi.IsDeleted==false))
+                .FirstOrDefaultAsync(p=>p.IsDeleted==false && p.Id==id);
+
+            if(product == null)
+            {
+                return BadRequest();
+
+            }
+
+                
+            return PartialView("_ModalPartial",product);
         }
     }
 }

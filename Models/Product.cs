@@ -53,6 +53,8 @@ namespace Allup_Template.Models
 
         public Category? Category { get; set;}
 
+        public IEnumerable<ProductImage>? productImages { get; set; }
+
 
     }
 }
