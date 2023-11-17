@@ -1,5 +1,6 @@
 ﻿using Allup_Template.DataAccessLayer;
 using Allup_Template.Models;
+using Allup_Template.ViewModels.ShopVMs;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -14,9 +15,33 @@ namespace Allup_Template.Controllers
             _context = context;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index(int? categoryId)
         {
-            return View();
+            Category category = null;
+            if (categoryId != null)
+            {
+                 category = await _context.Categories.FirstOrDefaultAsync(c => c.IsDeleted == false && c.Id == categoryId);
+                if (category==null)
+                {
+                    categoryId= null;
+                }
+            }
+
+
+            ShopVM shopVM = new ShopVM
+            {
+                Categories = await _context.Categories.Include(c => c.Children.Where(ch => ch.IsDeleted == false))
+                .Where(c => c.IsMain == true && c.IsDeleted == false)
+                .ToListAsync(),
+
+                Products=await _context.Products
+                .Where(p => (categoryId !=null ? p.CategoryId ==categoryId :true) && p.IsDeleted==false)
+                .ToListAsync(),
+
+                SelectedCategory=category
+
+            };
+            return View(shopVM);
         }
 
         public async Task<IActionResult> Search(int? categoryId, string search)
