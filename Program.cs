@@ -11,8 +11,15 @@ builder.Services.AddDbContext<AppDbContext>(option =>
 });
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromSeconds(10);
+});
+
+builder.Services.AddHttpContextAccessor();
 builder.Services.AddScoped<ILayoutService, LayoutService>();
 var app = builder.Build();
+app.UseSession();
 app.UseStaticFiles();
 app.MapControllerRoute(
     name:"default", 

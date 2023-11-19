@@ -80,7 +80,17 @@ $(document).ready(function () {
       
     })             
                
+    $('.AddBasketBtn').click(function (e) {
+        e.preventDefault();
 
+        let url = $(this).attr('href');
+
+        fetch(url)
+            .then(res => res.text())
+            .then(data => {
+                $('.header-cart').html(data);
+            })
+    })
 
 
     })

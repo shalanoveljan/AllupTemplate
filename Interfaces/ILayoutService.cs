@@ -1,4 +1,5 @@
 ﻿using Allup_Template.Models;
+using Allup_Template.ViewModels.BasketVMs;
 
 namespace Allup_Template.Interfaces
 {
@@ -7,5 +8,6 @@ namespace Allup_Template.Interfaces
 
         Task<IDictionary<string, string>> GetSettingsAsync();
         Task<IEnumerable<Category>> GetCategoriesAsync();
+        Task<IEnumerable<BasketVM>> GetBasketAsync();
     }
 }

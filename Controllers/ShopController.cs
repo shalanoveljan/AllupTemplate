@@ -15,7 +15,7 @@ namespace Allup_Template.Controllers
             _context = context;
         }
 
-        public async Task<IActionResult> Index(int? categoryId)
+        public async Task<IActionResult> Index(int? categoryId,int pageIndex=1)
         {
             Category category = null;
             if (categoryId != null)
@@ -34,11 +34,14 @@ namespace Allup_Template.Controllers
                 .Where(c => c.IsMain == true && c.IsDeleted == false)
                 .ToListAsync(),
 
-                Products=await _context.Products
-                .Where(p => (categoryId !=null ? p.CategoryId ==categoryId :true) && p.IsDeleted==false)
+                Products = await _context.Products
+                .Where(p => (categoryId != null ? p.CategoryId == categoryId : true) && p.IsDeleted == false)
+                .OrderByDescending(c => c.Id)
+                .Skip((pageIndex - 1) * 12)
+                .Take(12)
                 .ToListAsync(),
 
-                SelectedCategory=category
+                SelectedCategory = category
 
             };
             return View(shopVM);

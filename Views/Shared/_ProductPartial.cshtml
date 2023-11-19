@@ -1,0 +1,44 @@
+﻿@model Product
+
+<div class="single-product mt-30">
+    <div class="product-image">
+        <a href="single-product.html">
+            <img class="first-image" src="~/assets/images/product/@Model.MainImage" alt="product">
+            <img class="second-image" src="~/assets/images/product/@Model.HoverImage" alt="product">
+        </a>
+        <ul class="product-meta">
+            <li><a class="AddBasketBtn" asp-controller="Basket" asp-action="addbasket" asp-route-id="@Model.Id"><i class="icon ion-bag"></i></a></li>
+            <li><a href="#"><i class="icon ion-android-favorite-outline"></i></a></li>
+            <li><a href="#"><i class="icon ion-android-options"></i></a></li>
+            <li><a class="modalBtn" data-toggle="modal" data-target="#productQuickModal" asp-controller="Shop" asp-action="Modal" asp-route-id="@Model.Id"><i class="icon ion-android-open"></i></a></li>
+        </ul>
+        @if (Model.DiscountPrice > 0)
+        {
+            <span class="discount-product">-@((((Model.Price - Model.DiscountPrice) / Model.Price) * 100).ToString("#.##"))%</span>
+
+        }
+    </div>
+    <div class="product-content">
+        <ul class="product-rating">
+            <li><i class="fas fa-star"></i></li>
+            <li><i class="fas fa-star"></i></li>
+            <li><i class="fas fa-star"></i></li>
+            <li><i class="fas fa-star"></i></li>
+            <li><i class="fas fa-star"></i></li>
+        </ul>
+        <h4 class="product-title"><a href="single-product.html">@Model.Title</a></h4>
+        <div class="product-price">
+            @if (Model.DiscountPrice > 0)
+            {
+                <span class="regular-price">€@Model.Price</span>
+                <span class="price-sale">€@Model.DiscountPrice</span>
+            }
+
+            else
+            {
+                <span class="price-sale">€@Model.Price</span>
+
+            }
+        </div>
+    </div>
+</div> <!-- single product -->

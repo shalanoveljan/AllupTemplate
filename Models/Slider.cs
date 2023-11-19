@@ -17,5 +17,9 @@ namespace Allup_Template.Models
 
 
         public string Description { get; set; }
+        [StringLength(255)]
+
+        public string Url { get; set; }
+
     }
 }
